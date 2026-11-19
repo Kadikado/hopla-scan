@@ -1,0 +1,6 @@
+{
+  "appId": "fr.hoplascan.app",
+  "appName": "Hopla Scan",
+  "webDir": "www",
+  "android": { "allowMixedContent": false }
+}
