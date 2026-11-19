@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0E0F0C">
+<title>Hopla Scan</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0Y1QzgwMCIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzBFMEYwQyIgc3Ryb2tlLXdpZHRoPSIzMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48cGF0aCBkPSJNODYgMTc2VjExOGEzMiAzMiAwIDAgMSAzMi0zMmg1OCIvPjxwYXRoIGQ9Ik0zMzYgODZoNThhMzIgMzIgMCAwIDEgMzIgMzJ2NTgiLz48cGF0aCBkPSJNNDI2IDMzNnY1OGEzMiAzMiAwIDAgMS0zMiAzMmgtNTgiLz48cGF0aCBkPSJNMTc2IDQyNmgtNThhMzIgMzIgMCAwIDEtMzItMzJ2LTU4Ii8+PC9nPjxlbGxpcHNlIGN4PSIyNjIiIGN5PSIzOTIiIHJ4PSI3OCIgcnk9IjEzIiBmaWxsPSIjMEUwRjBDIiBvcGFjaXR5PSIuMjIiLz48ZyBzdHJva2U9IiMwRTBGMEMiIHN0cm9rZS13aWR0aD0iMTYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTEzOCAzMDBoMzQiLz48cGF0aCBkPSJNMTIyIDMzNmg0OCIvPjxwYXRoIGQ9Ik0xNDYgMzcyaDI2Ii8+PC9nPjxnIHRyYW5zZm9ybT0icm90YXRlKC0xMiAyNjIgMjM2KSI+PHBhdGggZD0iTTE5MCAxMjhoMTEwbDUyIDUydjE3MGExNCAxNCAwIDAgMS0xNCAxNEgxOTBhMTQgMTQgMCAwIDEtMTQtMTRWMTQyYTE0IDE0IDAgMCAxIDE0LTE0eiIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjMEUwRjBDIiBzdHJva2Utd2lkdGg9IjE4IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTMwMCAxMjh2NDBhMTIgMTIgMCAwIDAgMTIgMTJoNDAiIGZpbGw9IiNGNUM4MDAiIHN0cm9rZT0iIzBFMEYwQyIgc3Ryb2tlLXdpZHRoPSIxOCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxnIHN0cm9rZT0iIzBFMEYwQyIgc3Ryb2tlLXdpZHRoPSIxNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48cGF0aCBkPSJNMjA4IDIyMmgxMTAiLz48cGF0aCBkPSJNMjA4IDI2MGgxMTAiLz48cGF0aCBkPSJNMjA4IDI5OGg3MCIvPjwvZz48L2c+PC9zdmc+">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--y:#F5C800;--yd:#B38800;--k:#0E0F0C;--w:#F5F3EE;--g:#8A8A85;--k2:#1B1C18;--k3:#2A2B26;--k4:#3a3b35}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--k);color:var(--w);font-family:Barlow,system-ui,sans-serif;font-size:18px;overflow:hidden;overscroll-behavior:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+button:disabled{opacity:.35}
+.view{position:fixed;inset:0;display:none;flex-direction:column;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+.view.on{display:flex}
+header{display:flex;align-items:center;gap:10px;padding:12px 14px;min-height:66px;border-bottom:1px solid var(--k3);flex:none}
+header h2{margin:0;font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.5px;font-size:26px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo{display:flex;align-items:center;gap:10px;flex:1}
+.logo svg{width:46px;height:46px;flex:none}
+.logo h1{margin:0;font-family:"Barlow Condensed",sans-serif;font-size:33px;line-height:1;letter-spacing:.5px}
+.logo h1 b{color:var(--y)}
+.ib{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-size:25px;background:var(--k2);flex:none}
+.ib:active{background:var(--k3)}
+.main{flex:1;overflow-y:auto;padding:14px;-webkit-overflow-scrolling:touch}
+.bar{display:flex;gap:10px;padding:12px 14px;border-top:1px solid var(--k3);background:var(--k);flex:none;align-items:center}
+.btn{flex:1;min-height:60px;border-radius:14px;background:var(--k2);font-weight:700;font-size:19px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 10px;text-decoration:none;color:var(--w)}
+.btn:active{filter:brightness(1.25)}
+.btn.y{background:var(--y);color:var(--k)}
+.btn.red{background:#3a1512;color:#ff8a7e}
+.btn .ic{font-size:24px}
+.three .btn{flex-direction:column;gap:2px;min-height:72px;font-size:17px}.three .btn .ic{font-size:26px;line-height:1}
+.bigshot{flex:none;width:86px;height:86px;border-radius:50%;background:var(--y);color:var(--k);display:grid;place-items:center;box-shadow:0 0 0 5px var(--k),0 0 0 8px var(--y);margin:0 6px}
+.bigshot svg{width:42px;height:42px}
+.search{display:flex;align-items:center;gap:10px;background:var(--k2);border-radius:14px;padding:0 14px;margin-bottom:14px}
+.search input{flex:1;background:none;border:0;color:var(--w);font:inherit;font-size:19px;padding:14px 0;outline:none}
+.doc{display:flex;gap:14px;align-items:center;background:var(--k2);border-radius:16px;padding:12px;margin-bottom:12px}
+.doc:active{background:var(--k3)}
+.doc .th{width:74px;height:98px;border-radius:8px;background:#fff center/cover no-repeat;flex:none;border:2px solid var(--k3)}
+.doc .nm{font-weight:700;font-size:20px;margin-bottom:4px;word-break:break-word}
+.doc .meta{color:var(--g);font-size:16px}
+.tag{display:inline-block;background:var(--k3);color:var(--y);font-size:13px;font-weight:700;border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:middle}
+.empty{text-align:center;color:var(--g);margin-top:9vh;font-size:20px;line-height:1.5;padding:0 18px}
+.empty .big{font-size:70px;margin-bottom:8px}
+.empty b{color:var(--w)}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;text-align:left}
+.feat div{background:var(--k2);border-radius:12px;padding:12px;font-size:16px;color:var(--w)}
+.feat div span{display:block;font-size:24px;margin-bottom:4px}
+.note{color:var(--g);font-size:15px;text-align:center;margin:12px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.pg{position:relative;background:var(--k2);border-radius:14px;padding:8px}
+.pg img{width:100%;aspect-ratio:3/4;object-fit:contain;background:#fff;border-radius:8px;display:block}
+.pg .num{position:absolute;top:14px;left:14px;background:var(--y);color:var(--k);font-weight:800;border-radius:8px;min-width:32px;height:32px;display:grid;place-items:center;font-size:18px}
+.pg .ocr{position:absolute;top:14px;right:14px;background:var(--k);color:var(--y);font-weight:800;border-radius:8px;height:28px;padding:0 7px;display:grid;place-items:center;font-size:13px}
+.pg .mv{display:flex;gap:6px;margin-top:8px}
+.pg .mv button{flex:1;height:42px;border-radius:10px;background:var(--k3);font-size:20px}
+/* caméra */
+#v-cam{background:#000;padding:0}
+#camStage{position:absolute;inset:0;overflow:hidden;background:#000}
+#camVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#camOverlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#camFlash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;transition:opacity .25s}
+.camtop{position:absolute;left:0;right:0;top:0;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;display:flex;gap:10px;align-items:center;background:linear-gradient(#000c,#0000)}
+.camtop .ib{background:#0009}
+.camtop .ib.on{background:var(--y);color:var(--k)}
+.pill{height:44px;border-radius:22px;padding:0 16px;background:#0009;font-weight:800;font-size:16px;display:flex;align-items:center;gap:6px}
+.pill.on{background:var(--y);color:var(--k)}
+.camhint{position:absolute;left:50%;top:calc(84px + env(safe-area-inset-top));transform:translateX(-50%);background:#000b;color:#fff;font-weight:700;font-size:19px;padding:10px 18px;border-radius:24px;white-space:nowrap;max-width:94%;overflow:hidden;text-overflow:ellipsis}
+.camhint.ok{background:var(--y);color:var(--k)}
+.cambottom{position:absolute;left:0;right:0;bottom:0;padding:8px 14px calc(16px + env(safe-area-inset-bottom));background:linear-gradient(#0000,#000d 30%)}
+.tabs{display:flex;justify-content:center;gap:6px;margin-bottom:14px}
+.tabs button{padding:9px 13px;border-radius:22px;font-weight:800;font-size:15px;color:#ddd;text-transform:uppercase;letter-spacing:.5px}
+.tabs button.on{background:var(--y);color:var(--k)}
+.camrow{display:flex;align-items:center;justify-content:space-between}
+.camside{width:70px;height:70px;border-radius:16px;background:#0009;border:2px solid #fff4;display:grid;place-items:center;font-size:28px;position:relative;overflow:hidden;background-size:cover;background-position:center}
+.camside .cnt{position:absolute;right:4px;bottom:4px;background:var(--y);color:var(--k);font-weight:800;font-size:15px;border-radius:8px;min-width:26px;height:26px;display:grid;place-items:center}
+#shutter{width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px #000,0 0 0 9px #fff;display:grid;place-items:center}
+#shutter:active{transform:scale(.94)}
+#shutter.qr{background:var(--y)}
+.nolive{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:30px;color:#ddd;font-size:20px;line-height:1.4}
+.nolive.on{display:flex}
+.nolive .big{font-size:80px}
+.idframe{position:absolute;left:50%;top:46%;width:86%;max-width:520px;aspect-ratio:85.6/54;transform:translate(-50%,-50%);border:4px dashed var(--y);border-radius:18px;display:none;pointer-events:none;box-shadow:0 0 0 2000px #0006}
+.idframe.on{display:block}
+/* recadrage */
+#cropBox{flex:1;position:relative;background:#000;overflow:hidden}
+#cropCanvas{position:absolute;left:0;top:0;width:100%;height:100%;touch-action:none}
+.hint{text-align:center;color:var(--g);font-size:16px;padding:8px 12px 0}
+/* filtres */
+#prevBox{flex:1;display:flex;align-items:center;justify-content:center;background:#000;padding:12px;overflow:hidden;min-height:0;position:relative}
+#prevCanvas{max-width:100%;max-height:100%;box-shadow:0 4px 20px rgba(0,0,0,.6);background:#fff}
+#prevBusy{position:absolute;top:16px;right:16px;width:30px;height:30px;border:4px solid #fff3;border-top-color:var(--y);border-radius:50%;animation:sp 1s linear infinite;display:none}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 14px 2px;scrollbar-width:none;flex:none}
+.chip{flex:none;padding:12px 16px;border-radius:30px;background:var(--k2);font-weight:700;font-size:18px;border:2px solid transparent;white-space:nowrap}
+.chip.on{border-color:var(--y);color:var(--y)}
+.tools{display:flex;gap:8px;padding:10px 14px 0;flex:none}
+.tools .btn{min-height:52px;font-size:17px}
+.adj{padding:4px 18px 0;display:none;flex:none}
+.adj.on{display:block}
+.adj label{display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px;margin:6px 0}
+.adj label span{width:110px}
+.adj input[type=range]{flex:1;accent-color:var(--y);height:30px}
+/* signature */
+#signBox{flex:1;position:relative;background:#000;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:12px}
+#signWrap{position:relative;max-width:100%;max-height:100%}
+#signPage{display:block;max-width:100%;max-height:calc(100vh - 230px);background:#fff}
+#signImg{position:absolute;border:2px dashed var(--y);touch-action:none;cursor:move}
+#signImg img{width:100%;height:100%;display:block;pointer-events:none}
+#signRes{position:absolute;right:-16px;bottom:-16px;width:34px;height:34px;border-radius:50%;background:var(--y);border:3px solid var(--k);touch-action:none}
+#pad{width:100%;height:240px;background:#fff;border-radius:14px;touch-action:none;display:block;margin-bottom:14px}
+/* overlays */
+#busy{position:fixed;inset:0;background:rgba(14,15,12,.84);display:none;align-items:center;justify-content:center;flex-direction:column;gap:18px;z-index:50;font-size:21px;font-weight:600;text-align:center;padding:20px}
+#busy.on{display:flex}
+.spin{width:56px;height:56px;border:6px solid var(--k3);border-top-color:var(--y);border-radius:50%;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:flex-end;justify-content:center;z-index:40}
+#modal.on{display:flex}
+.sheet{background:var(--k2);width:100%;max-width:560px;border-radius:22px 22px 0 0;padding:22px 18px calc(18px + env(safe-area-inset-bottom));max-height:92vh;overflow-y:auto}
+.sheet h3{margin:0 0 14px;font-family:"Barlow Condensed",sans-serif;font-size:28px;text-transform:uppercase}
+.sheet p{margin:0 0 16px;color:#cfcdc6;line-height:1.45}
+.sheet input[type=text],.sheet textarea{width:100%;font:inherit;font-size:19px;padding:14px;border-radius:12px;border:2px solid var(--k3);background:var(--k);color:var(--w);margin-bottom:14px}
+.sheet textarea{height:38vh;font-size:17px;line-height:1.4;resize:none}
+.sheet input:focus,.sheet textarea:focus{outline:none;border-color:var(--y)}
+.sheet .col{display:flex;flex-direction:column;gap:10px}
+.sheet .row{display:flex;gap:10px}
+.sheet .btn{background:var(--k3)}.sheet .btn.y{background:var(--y)}.sheet .btn.red{background:#3a1512}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;justify-content:flex-start;padding:0 16px}
+.opt small{display:block;color:var(--g);font-weight:500;font-size:15px}
+.btn.y .opt small,.btn.y small{color:#4a4000}
+.qrres{background:var(--k);border:2px solid var(--y);border-radius:14px;padding:16px;font-size:21px;font-weight:600;word-break:break-all;margin-bottom:14px;max-height:30vh;overflow:auto;user-select:text;white-space:pre-wrap}
+.qrkind{color:var(--y);font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.hist{margin-top:16px;border-top:1px solid var(--k3);padding-top:12px}
+.hist h4{margin:0 0 8px;color:var(--g);font-size:16px;font-weight:600}
+.hist button{display:block;width:100%;text-align:left;padding:12px;border-radius:10px;background:var(--k);margin-bottom:8px;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prog{height:10px;background:var(--k3);border-radius:6px;overflow:hidden;width:240px}
+.prog i{display:block;height:100%;background:var(--y);width:0;transition:width .2s}
+#toast{position:fixed;left:50%;bottom:120px;transform:translateX(-50%);background:var(--y);color:var(--k);font-weight:700;padding:14px 22px;border-radius:30px;z-index:60;display:none;max-width:90%;text-align:center}
+#toast.on{display:block}
+body.cam #toast{bottom:auto;top:calc(140px + env(safe-area-inset-top))}
+input[type=file]{display:none}
+</style>
+</head>
+<body>
+
+<!-- ACCUEIL -->
+<section class="view on" id="v-home">
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#F5C800"/><g fill="none" stroke="#0E0F0C" stroke-width="30" stroke-linecap="round"><path d="M86 176V118a32 32 0 0 1 32-32h58"/><path d="M336 86h58a32 32 0 0 1 32 32v58"/><path d="M426 336v58a32 32 0 0 1-32 32h-58"/><path d="M176 426h-58a32 32 0 0 1-32-32v-58"/></g><ellipse cx="262" cy="392" rx="78" ry="13" fill="#0E0F0C" opacity=".22"/><g stroke="#0E0F0C" stroke-width="16" stroke-linecap="round"><path d="M138 300h34"/><path d="M122 336h48"/><path d="M146 372h26"/></g><g transform="rotate(-12 262 236)"><path d="M190 128h110l52 52v170a14 14 0 0 1-14 14H190a14 14 0 0 1-14-14V142a14 14 0 0 1 14-14z" fill="#fff" stroke="#0E0F0C" stroke-width="18" stroke-linejoin="round"/><path d="M300 128v40a12 12 0 0 0 12 12h40" fill="#F5C800" stroke="#0E0F0C" stroke-width="18" stroke-linejoin="round"/><g stroke="#0E0F0C" stroke-width="14" stroke-linecap="round"><path d="M208 222h110"/><path d="M208 260h110"/><path d="M208 298h70"/></g></g></svg>
+      <h1>HOPLA <b>SCAN</b></h1>
+    </div>
+  </header>
+  <div class="main" id="homeMain">
+    <div class="search" id="searchBox"><span>🔍</span><input id="q" type="search" placeholder="Rechercher un document ou un mot…" autocomplete="off"></div>
+    <div id="homeList"></div>
+  </div>
+  <div class="bar three">
+    <button class="btn" data-act="gal"><span class="ic">🖼️</span>Importer</button>
+    <button class="bigshot" data-act="scan" aria-label="Scanner"><svg viewBox="0 0 24 24" fill="none" stroke="#0E0F0C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/><circle cx="12" cy="12" r="3.6"/></svg></button>
+    <button class="btn" data-act="qr"><span class="ic">🔳</span>QR code</button>
+  </div>
+</section>
+
+<!-- CAMÉRA -->
+<section class="view" id="v-cam">
+  <div id="camStage">
+    <video id="camVideo" playsinline muted autoplay></video>
+    <canvas id="camOverlay"></canvas>
+    <div class="idframe" id="idFrame"></div>
+    <div class="nolive" id="camNoLive"><div class="big">📷</div><div id="noLiveTxt">Appuyez sur le bouton blanc pour prendre la photo du document.</div></div>
+    <div id="camFlash"></div>
+  </div>
+  <div class="camtop">
+    <button class="ib" data-act="camClose">✕</button>
+    <div style="flex:1"></div>
+    <button class="ib" id="torchBtn" data-act="torch" style="display:none">🔦</button>
+    <button class="pill on" id="autoBtn" data-act="autoToggle">⚡ AUTO</button>
+  </div>
+  <div class="camhint" id="camHint">Cadrez le document</div>
+  <div class="cambottom">
+    <div class="tabs" id="camTabs">
+      <button data-mode="doc" class="on">Document</button>
+      <button data-mode="id">Carte ID</button>
+      <button data-mode="qr">QR code</button>
+    </div>
+    <div class="camrow">
+      <button class="camside" data-act="camGal" aria-label="Galerie">🖼️</button>
+      <button id="shutter" data-act="shutter" aria-label="Prendre la photo"></button>
+      <button class="camside" id="camDone" data-act="camDone" aria-label="Terminer" style="visibility:hidden"><span class="cnt" id="camCnt">0</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENT -->
+<section class="view" id="v-doc">
+  <header>
+    <button class="ib" data-act="home">←</button>
+    <h2 id="docTitle" data-act="rename"></h2>
+    <button class="ib" data-act="docmenu">⋯</button>
+  </header>
+  <div class="main"><div class="grid" id="pages"></div><p class="note">Touchez une page pour la modifier, la signer ou lire son texte.</p></div>
+  <div class="bar three">
+    <button class="btn" data-act="scanMore"><span class="ic">📷</span>Ajouter</button>
+    <button class="btn" data-act="gal"><span class="ic">🖼️</span>Importer</button>
+    <button class="btn y" data-act="share"><span class="ic">📤</span>Partager</button>
+  </div>
+</section>
+
+<!-- RECADRAGE -->
+<section class="view" id="v-crop">
+  <header>
+    <button class="ib" data-act="cancelEdit">✕</button>
+    <h2 id="cropTitle">Recadrer</h2>
+  </header>
+  <div class="hint">Déplacez les coins jaunes sur les bords du document</div>
+  <div id="cropBox"><canvas id="cropCanvas"></canvas></div>
+  <div class="bar">
+    <button class="btn" data-act="auto"><span class="ic">✨</span>Auto</button>
+    <button class="btn" data-act="full"><span class="ic">⬜</span>Tout</button>
+    <button class="btn y" data-act="cropOk">Valider ✓</button>
+  </div>
+</section>
+
+<!-- AMÉLIORATION -->
+<section class="view" id="v-filter">
+  <header>
+    <button class="ib" data-act="backCrop">←</button>
+    <h2>Améliorer</h2>
+  </header>
+  <div id="prevBox"><canvas id="prevCanvas"></canvas><div id="prevBusy"></div></div>
+  <div class="chips" id="chips"></div>
+  <div class="adj" id="adj">
+    <label><span>☀️ Luminosité</span><input type="range" id="aB" min="-50" max="50" value="0"></label>
+    <label><span>◐ Contraste</span><input type="range" id="aC" min="-50" max="50" value="0"></label>
+    <label><span>🔍 Netteté</span><input type="range" id="aS" min="0" max="100" value="0"></label>
+  </div>
+  <div class="tools">
+    <button class="btn" data-act="rotL">↺</button>
+    <button class="btn" data-act="rotR">↻</button>
+    <button class="btn" id="adjBtn" data-act="adjToggle">🎚️ Réglages</button>
+  </div>
+  <div class="bar">
+    <button class="btn y" data-act="savePage" id="saveBtn">✓ Enregistrer</button>
+  </div>
+</section>
+
+<!-- SIGNATURE -->
+<section class="view" id="v-sign">
+  <header>
+    <button class="ib" data-act="signCancel">✕</button>
+    <h2>Placer la signature</h2>
+  </header>
+  <div class="hint">Glissez la signature · rond jaune = taille</div>
+  <div id="signBox"><div id="signWrap"><img id="signPage" alt=""><div id="signImg"><img id="signImgEl" alt=""><div id="signRes"></div></div></div></div>
+  <div class="bar">
+    <button class="btn" data-act="signRedo">✍️ Refaire</button>
+    <button class="btn red" data-act="signRemove" id="signRemoveBtn">Retirer</button>
+    <button class="btn y" data-act="signOk">Valider ✓</button>
+  </div>
+</section>
+
+<input type="file" id="inCam" accept="image/*" capture="environment">
+<input type="file" id="inGal" accept="image/*" multiple>
+<input type="file" id="inQr" accept="image/*" capture="environment">
+
+<div id="busy"><div class="spin"></div><div id="busyTxt">Traitement…</div><div class="prog" id="busyProg" style="display:none"><i></i></div></div>
+<div id="modal"><div class="sheet" id="sheet"></div></div>
+<div id="toast"></div>
+
+<script src="jsqr.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
